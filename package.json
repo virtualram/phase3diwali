@@ -2,16 +2,19 @@
   "name": "first-app",
   "version": "0.0.0",
   "engines": {
-    "node": "14.x"
-  },
+    "node": "15.2.0",
+    "npm": "7.0.12"
+  
+},
   "scripts": {
     "ng": "ng",
    
-    "start":"node server.js",
-    "build": "ng build --prod",
+    "start": "node server.js",
+    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "heroku-postbuild": "ng build --aot --prod "
   },
   "private": true,
   "dependencies": {
