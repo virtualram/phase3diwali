@@ -1,0 +1,55 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}! on {{todaydate}}
+    <p>The sum of 1 + 1 is {{1 + 1}}.</p>
+  </h1>
+  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+</div>
+<h2>Here are some links to help you start: </h2>
+<ul>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
+  </li>
+ 
+</ul>
+
+<div *ngFor="let day of weekdays">
+    <ng-container *ngIf =
+        "(day == 'Saturday' || day == 'Sunday'); else elseTemplate">
+      <h1>{{day}} is a weekend</h1>
+    </ng-container>
+    <ng-template #elseTemplate>
+      <h1>{{day}} is not a weekend</h1>
+    </ng-template>
+</div>
+<div class ="card card-block" abc> test this</div>
+<button appExample defaultColor="red">Button</button>
+<app-sub-app></app-sub-app>
+<div>
+  <h2>Update user account!</h2> 
+  <div class="alert alert-danger" role="alert" *ngIf='errorOccured'>
+    {{errorMessage}}
+  </div>
+  <div class="alert alert-success" role="alert" *ngIf='isSuccess'>
+    {{sucessMessage | json}}
+  </div>
+  <div>
+  <form #updateUserForm = "ngForm" (ngSubmit) = "onClickSubmit(updateUserForm)">
+    <div class="form-group">
+      <label for="username">User Name (Unique)</label>
+      <input type="text" class="form-control" name="username" placeholder="Enter a unique user name" ngModel>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="text" class="form-control" name="password" placeholder="Enter Password" ngModel>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" name="email" placeholder="Enter Email" ngModel>
+    </div> 
+   
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+<router-outlet></router-outlet>
